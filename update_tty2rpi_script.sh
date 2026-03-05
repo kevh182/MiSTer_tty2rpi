@@ -20,7 +20,7 @@ echo "Updating tty2rpi..."
 ! [ -d ${LOCALGITDIR} ] && mkdir ${LOCALGITDIR}
 git -C ${LOCALGITDIR} fetch origin --quiet > /dev/null 2>&1
 if [ ${?} -gt 0 ]; then
-  git -C ${LOCALGITDIR} clone --quiet https://github.com/ojaksch/MiSTer_tty2rpi
+  git -C ${LOCALGITDIR} clone --quiet https://github.com/kevh182/MiSTer_tty2rpi
   mv ${LOCALGITDIR}/MiSTer_tty2rpi/{.,}* ${LOCALGITDIR}/ > /dev/null 2>&1
   rm -rf ${LOCALGITDIR}/MiSTer_tty2rpi/
   [ "${REPOSITORY_URL##*/}" = "main" ] && git -C ${LOCALGITDIR} checkout main
@@ -54,7 +54,7 @@ if ! [ -s /etc/systemd/system/splashscreen-shutdown.service ]; then
 fi
 
 # Create a needed xorg dependency for VC4 (Raspberry)
-# https://github.com/ojaksch/MiSTer_tty2rpi/blob/main/1-Setup-Raspberry_Pi.md#bugs-and-things-still-to-do
+# https://github.com/kevh182/MiSTer_tty2rpi/blob/main/1-Setup-Raspberry_Pi.md#bugs-and-things-still-to-do
 . /usr/local/bin/showrpimodel > /dev/null 2>&1
 if [ -n "${RPIMODEL}" ] && ! [ -a /etc/X11/xorg.conf.d/99-vc4.conf ]; then
 sudo bash -c 'echo "Section \"OutputClass\"

@@ -16,14 +16,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # You can download the latest version of this script from:
-# https://github.com/ojaksch/MiSTer_tty2rpi
+# https://github.com/kevh182/MiSTer_tty2rpi
 
 
 freset="\e[0m\033[0m"
 fblue="\e[1;34m"
 
-REPOSITORY_URL="https://raw.githubusercontent.com/ojaksch/MiSTer_tty2rpi/main/files_mister"
-#REPOSITORY_URL="https://raw.githubusercontent.com/ojaksch/MiSTer_tty2rpi/refs/heads/testing/files_mister"
+REPOSITORY_URL="https://raw.githubusercontent.com/kevh182/MiSTer_tty2rpi/main/files_mister"
+#REPOSITORY_URL="https://raw.githubusercontent.com/kevh182/MiSTer_tty2rpi/refs/heads/testing/files_mister"
 
 [ -e /media/fat/tty2rpi/tty2rpi-user.ini ] && . /media/fat/tty2rpi/tty2rpi-user.ini
 

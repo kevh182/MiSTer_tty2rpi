@@ -73,7 +73,7 @@ sudo systemctl enable ssh.service
 
 Get and run the install/update script:
 ```
-wget https://raw.githubusercontent.com/ojaksch/MiSTer_tty2rpi/main/update_tty2rpi.sh -O - | bash -
+wget https://raw.githubusercontent.com/kevh182/MiSTer_tty2rpi/main/update_tty2rpi.sh -O - | bash -
 ```
 Files that will be created;
 - /boot/firmware/cmdline.txt.example -- compare with your existing cmdline.txt. The only relevant changes here are the parameters *quiet* and *cfg80211.ieee80211_regdom=COUNTRYCODE*. [See here](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm) for a list of WiFi regulatory domains.
@@ -259,7 +259,7 @@ Again, no deep dive into the subject here, read the following articles to get an
 # Bugs and things still to do
 
 - If your are getting a <ins>blank screen only</ins> after booting, you could try to set one or all HDMI related settings in *config.txt*: __hdmi_safe__, __hdmi_force_hotplug__ and __hdmi_drive__
-Another hint, especially when using a RPi5, could be to set __vc4.force_hotplug=3__ in *cmdline.txt* - see [that issue](https://github.com/ojaksch/MiSTer_tty2rpi/issues/5) we had in the past.
+Another hint, especially when using a RPi5, could be to set __vc4.force_hotplug=3__ in *cmdline.txt* - see [that issue](https://github.com/kevh182/MiSTer_tty2rpi/issues/5) we had in the past.
 - If you end up getting a <ins>blank screen with a blinking cursor</ins> in the top left corner, login to another console at tty2 (by pressing ALT + F2) or ssh to your RPi and start an editor by typing in
 	
 	```
