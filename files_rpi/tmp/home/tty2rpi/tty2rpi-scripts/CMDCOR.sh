@@ -65,10 +65,23 @@ if ! [ -s "${TMPDIR}/pic.png.tmp" ]; then
 	ffmpeg -y -loglevel quiet -hide_banner -i "${BLA}" ${FFMPARAMS} "${TMPDIR}/$(basename "${BLA%.*}")-rescaled.png"
 	rm "${BLA}"
       done
-    else
-      cp "${MEDIA}" "${TMPDIR}/pic.png"
-      for ALTMEDIA in "${MEDIA%.*}_alt"*; do [ -e "${ALTMEDIA}" ] && cp "${ALTMEDIA}" "${TMPDIR}" ; done
-    fi
+else
+
+	cp "${MEDIA}" "${TMPDIR}/pic.png"
+	for ALTMEDIA in "${MEDIA%.*}_alt"*; do [ -e "${ALTMEDIA}" ] && cp "${ALTMEDIA}" "${TMPDIR}" ; done
+		
+		# Pick a random "_alt" image if enabled
+		if [ "${RANDOM_ALT_PIC}" = "yes" ]; then
+			ALT_LIST=("${TMPDIR}"/*_alt*)
+			if [ ${#ALT_LIST[@]} -gt 0 ]; then
+				RAND_IDX=$((RANDOM % ${#ALT_LIST[@]}))
+				RANDOM_ALT="${ALT_LIST[$RAND_IDX]}"
+				cp "${RANDOM_ALT}" "${TMPDIR}/pic.png"
+				echo "Random alt chosen: $(basename "${RANDOM_ALT}")" >> "${TMPDIR}/tmp/debug.log"
+			fi
+		fi
+	fi
+	
   else
     if [ "${SHOWMISSPIC}" = "yes" ]; then
       # Show "not found"
